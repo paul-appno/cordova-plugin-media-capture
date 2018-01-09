@@ -72,6 +72,23 @@
     [super viewWillAppear:animated];
 }
 
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscapeRight;
+}
+#else
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscapeRight;
+}
+#endif
+
 @end
 
 @implementation CDVCapture
